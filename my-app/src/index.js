@@ -71,6 +71,7 @@ import './index.css';
             history: [{
                 squares: Array(9).fill(null),
             }],
+            stepNumber: 0,
             xIsNext: true,
         };
     }
@@ -99,7 +100,7 @@ import './index.css';
         const moves = history.map((step,move)=>{
             const desc = move ? 'Go to move #' + move : 'Go to game start';
             return (
-                <li>
+                <li key={move}>
                     <button onClick={()=> this.jumpTo(move)}>{desc}</button>
                 </li>
             )
